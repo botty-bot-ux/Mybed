@@ -21,12 +21,12 @@ const CACHE_VERSION = 'v1.2';
 // Список файлов для предварительного кэширования
 // Убедитесь, что все необходимые ресурсы включены
 const precacheFiles = [
-    '/', // Главная страница
-    '/index.html',
-    '/offline.html',
-    '/manifest.json',
-    '/android-chrome-192x192.png',
-    '/android-chrome-512x512.png'
+    '/Mybed/', // или '/Mybed/index.html'
+    '/Mybed/index.html',
+    '/Mybed/offline.html',
+    '/Mybed/manifest.json',
+    '/Mybed/android-chrome-192x192.png',
+    '/Mybed/android-chrome-512x512.png'
 ];
 
 // Предварительное кэширование важных файлов

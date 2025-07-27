@@ -2,8 +2,8 @@
     "name": "Счётчик кроватей",
     "short_name": "Кровати",
     "description": "Удобный подсчет оснований и матрасов",
-    "start_url": "/index.html", 
-    "scope": "/", 
+    "start_url": "/Mybed/index.html", // Или просто "/Mybed/" если index.html подразумевается
+    "scope": "/Mybed/", // Очень важно! Область действия PWA
     "display": "standalone",
     "orientation": "portrait",
     "background_color": "#f0f2f5",
@@ -17,39 +17,39 @@
             "name": "Основания",
             "short_name": "Основания",
             "description": "Открыть вкладку оснований",
-            "url": "/?tab=beds", 
-            "icons": [{ "src": "/android-chrome-192x192.png", "sizes": "192x192" }]
+            "url": "/Mybed/?tab=beds",
+            "icons": [{ "src": "/Mybed/android-chrome-192x192.png", "sizes": "192x192" }]
         },
         {
             "name": "Матрасы",
             "short_name": "Матрасы",
             "description": "Открыть вкладку матрасов",
-            "url": "/?tab=mattresses",
-            "icons": [{ "src": "/android-chrome-192x192.png", "sizes": "192x192" }]
+            "url": "/Mybed/?tab=mattresses",
+            "icons": [{ "src": "/Mybed/android-chrome-192x192.png", "sizes": "192x192" }]
         }
     ],
     "screenshots": [
         {
-            "src": "/android-chrome-512x512.png",
+            "src": "/Mybed/android-chrome-512x512.png",
             "sizes": "512x512",
             "type": "image/png"
         }
     ],
     "icons": [
         {
-            "src": "/android-chrome-192x192.png",
+            "src": "/Mybed/android-chrome-192x192.png",
             "sizes": "192x192",
             "type": "image/png",
             "purpose": "any"
         },
         {
-            "src": "/android-chrome-512x512.png",
+            "src": "/Mybed/android-chrome-512x512.png",
             "sizes": "512x512",
             "type": "image/png",
             "purpose": "any"
         },
         {
-            "src": "/android-chrome-192x192.png",
+            "src": "/Mybed/android-chrome-192x192.png",
             "sizes": "192x192",
             "type": "image/png",
             "purpose": "maskable"
