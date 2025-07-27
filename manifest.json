@@ -2,9 +2,9 @@
     "name": "Счётчик кроватей",
     "short_name": "Кровати",
     "description": "Удобный подсчет оснований и матрасов",
-    "start_url": "/Mybed/index.html",
-    "scope": "/Mybed/",
-    "display": "fullscreen",
+    "start_url": "/index.html", 
+    "scope": "/", 
+    "display": "standalone",
     "orientation": "portrait",
     "background_color": "#f0f2f5",
     "theme_color": "#4361ee",
@@ -17,39 +17,39 @@
             "name": "Основания",
             "short_name": "Основания",
             "description": "Открыть вкладку оснований",
-            "url": "/Mybed/index.html?tab=beds",
-            "icons": [{ "src": "android-chrome-192x192.png", "sizes": "192x192" }]
+            "url": "/?tab=beds", 
+            "icons": [{ "src": "/android-chrome-192x192.png", "sizes": "192x192" }]
         },
         {
             "name": "Матрасы",
             "short_name": "Матрасы",
             "description": "Открыть вкладку матрасов",
-            "url": "/Mybed/index.html?tab=mattresses",
-            "icons": [{ "src": "android-chrome-192x192.png", "sizes": "192x192" }]
+            "url": "/?tab=mattresses",
+            "icons": [{ "src": "/android-chrome-192x192.png", "sizes": "192x192" }]
         }
     ],
     "screenshots": [
         {
-            "src": "/Mybed/android-chrome-512x512.png",
+            "src": "/android-chrome-512x512.png",
             "sizes": "512x512",
             "type": "image/png"
         }
     ],
     "icons": [
         {
-            "src": "/Mybed/android-chrome-192x192.png",
+            "src": "/android-chrome-192x192.png",
             "sizes": "192x192",
             "type": "image/png",
             "purpose": "any"
         },
         {
-            "src": "/Mybed/android-chrome-512x512.png",
+            "src": "/android-chrome-512x512.png",
             "sizes": "512x512",
             "type": "image/png",
             "purpose": "any"
         },
         {
-            "src": "/Mybed/android-chrome-192x192.png",
+            "src": "/android-chrome-192x192.png",
             "sizes": "192x192",
             "type": "image/png",
             "purpose": "maskable"
