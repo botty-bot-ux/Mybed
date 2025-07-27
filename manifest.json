@@ -2,12 +2,12 @@
     "name": "Счётчик кроватей",
     "short_name": "Кровати",
     "description": "Удобный подсчет оснований и матрасов",
-    "start_url": "/Mybed/index.html", 
-    "scope": "/Mybed/", 
-    "display": "standalone",
+    "start_url": "/Mybed/", 
+    "scope": "/Mybed/",
+    "display": "fullscreen",
     "orientation": "portrait",
-    "background_color": "#f0f2f5",
-    "theme_color": "#4361ee",
+    "background_color": "#f0f2f5", 
+    "theme_color": "#4361ee",      
     "categories": ["utilities", "productivity"],
     "lang": "ru-RU",
     "dir": "ltr",
@@ -17,8 +17,8 @@
             "name": "Основания",
             "short_name": "Основания",
             "description": "Открыть вкладку оснований",
-            "url": "/Mybed/?tab=beds", 
-            "icons": [{ "src": "/Mybed/android-chrome-192x192.png", "sizes": "192x192" }] 
+            "url": "/Mybed/?tab=beds",
+            "icons": [{ "src": "/Mybed/android-chrome-192x192.png", "sizes": "192x192" }]
         },
         {
             "name": "Матрасы",
@@ -37,7 +37,7 @@
     ],
     "icons": [
         {
-            "src": "/Mybed/android-chrome-192x192.png", 
+            "src": "/Mybed/android-chrome-192x192.png",
             "sizes": "192x192",
             "type": "image/png",
             "purpose": "any"
@@ -48,11 +48,13 @@
             "type": "image/png",
             "purpose": "any"
         },
+        
         {
-            "src": "/Mybed/android-chrome-192x192.png",
-            "sizes": "192x192",
+            "src": "/Mybed/splash-icon-512x512.png", /
+            "sizes": "720x1280",
             "type": "image/png",
-            "purpose": "maskable"
+            "purpose": "any maskable" 
         }
+        
     ]
 }
