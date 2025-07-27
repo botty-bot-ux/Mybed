@@ -1,0 +1,2 @@
+# File: index.ts (using ts-node)
+npx ts-node index.ts

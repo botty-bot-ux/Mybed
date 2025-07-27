@@ -1,0 +1,2 @@
+# File: main.ts (using ts-node)
+npx ts-node main.ts
