@@ -2,8 +2,8 @@
     "name": "Счётчик кроватей",
     "short_name": "Кровати",
     "description": "Удобный подсчет оснований и матрасов",
-    "start_url": "/Mybed/index.html", // Или просто "/Mybed/" если index.html подразумевается
-    "scope": "/Mybed/", // Очень важно! Область действия PWA
+    "start_url": "/Mybed/index.html", 
+    "scope": "/Mybed/", 
     "display": "standalone",
     "orientation": "portrait",
     "background_color": "#f0f2f5",
@@ -17,8 +17,8 @@
             "name": "Основания",
             "short_name": "Основания",
             "description": "Открыть вкладку оснований",
-            "url": "/Mybed/?tab=beds",
-            "icons": [{ "src": "/Mybed/android-chrome-192x192.png", "sizes": "192x192" }]
+            "url": "/Mybed/?tab=beds", 
+            "icons": [{ "src": "/Mybed/android-chrome-192x192.png", "sizes": "192x192" }] 
         },
         {
             "name": "Матрасы",
@@ -37,7 +37,7 @@
     ],
     "icons": [
         {
-            "src": "/Mybed/android-chrome-192x192.png",
+            "src": "/Mybed/android-chrome-192x192.png", 
             "sizes": "192x192",
             "type": "image/png",
             "purpose": "any"
