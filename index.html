@@ -22,7 +22,7 @@
             --warning: #ffd166;
             --dark: #1a1a2e;
             --light: #f8f9fa;
-            --gray: #6c757d;
+            --gray: #000000;
             --card-bg: #ffffff;
             --body-bg: #f0f2f5;
             --border-radius: 16px;
@@ -469,27 +469,27 @@
             .beds-section {
                 flex-direction: row;
                 flex-wrap: wrap;
-                gap: 16px;
+                gap: 10px;
             }
             .beds-column {
                 flex: 0 0 calc(50% - 8px);
             }
         /* Уменьшаем внутренние отступы карточек */
             .size-card {
-                padding: 12px 8px;
+                padding: 3px 3px;
             }
         /* Уменьшаем размер шрифта */
             .size-name {
-                font-size: 0.8rem;
+                font-size: 1.2rem;
             }
             .size-count {
-                font-size: 1.4rem;
+                font-size: 1.8rem;
             }
         /* Корректируем кнопки */
             .counter-btn {
-                width: 32px;
+                width: 48px;
                 height: 32px;
-                font-size: 1rem;
+                font-size: 1.2rem;
             }
             .mattress-options {
                 grid-template-columns: 1fr 1fr;
@@ -498,7 +498,7 @@
                 font-size: 1.5rem;
             }
             .card {
-                padding: 20px;
+                padding: 10px;
             }
         }
         @media (max-width: 340px) {
@@ -585,7 +585,7 @@
 <body>
     <div class="container">
         <header>
-            <h1><i class="fas fa-bed"></i> Счётчик кроватей</h1>
+            <h1><i class="fas fa-bed"></i> Склад</h1>
             <p>Удобный подсчет оснований и матрасов</p>
         </header>
         <!-- Вкладка оснований -->
