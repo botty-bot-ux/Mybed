@@ -50,7 +50,7 @@
         },
         
         {
-            "src": "/Mybed/splash-icon-512x512.png", /
+            "src": "/Mybed/splash-icon-512x512.png", 
             "sizes": "720x1280",
             "type": "image/png",
             "purpose": "any maskable" 
