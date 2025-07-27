@@ -2,20 +2,57 @@
     "name": "Счётчик кроватей",
     "short_name": "Кровати",
     "description": "Удобный подсчет оснований и матрасов",
-    "start_url": "/",
-    "display": "fullscreen",
+    "start_url": "./index.html",
+    "scope": "./",
+    "display": "standalone",
+    "orientation": "portrait",
     "background_color": "#f0f2f5",
     "theme_color": "#4361ee",
-    "icons": [
+    "categories": ["utilities", "productivity"],
+    "lang": "ru-RU",
+    "dir": "ltr",
+    "prefer_related_applications": false,
+    "shortcuts": [
         {
-            "src": "/android-chrome-192x192.png",
-            "sizes": "192x192",
-            "type": "image/png"
+            "name": "Основания",
+            "short_name": "Основания",
+            "description": "Открыть вкладку оснований",
+            "url": "./index.html?tab=beds",
+            "icons": [{ "src": "android-chrome-192x192.png", "sizes": "192x192" }]
         },
         {
-            "src": "/android-chrome-512x512.png",
+            "name": "Матрасы",
+            "short_name": "Матрасы",
+            "description": "Открыть вкладку матрасов",
+            "url": "./index.html?tab=mattresses",
+            "icons": [{ "src": "android-chrome-192x192.png", "sizes": "192x192" }]
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "android-chrome-512x512.png",
             "sizes": "512x512",
             "type": "image/png"
+        }
+    ],
+    "icons": [
+        {
+            "src": "android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
         }
     ]
 }

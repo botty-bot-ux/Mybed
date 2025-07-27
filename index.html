@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#4361ee">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Счётчик кроватей">
     <title>Счётчик кроватей</title>
     <link rel="manifest" href="manifest.json">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛏️</text></svg>">
-    <link rel="apple-touch-icon" href="image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛏️</text></svg>">
+    <link rel="icon" href="android-chrome-192x192.png">
+    <link rel="apple-touch-icon" href="android-chrome-192x192.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -26,14 +29,12 @@
             --shadow: 0 4px 12px rgba(0,0,0,0.08);
             --shadow-lg: 0 10px 25px rgba(0,0,0,0.15);
         }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
-
         body {
             background-color: var(--body-bg);
             color: var(--dark);
@@ -43,14 +44,12 @@
             flex-direction: column;
             padding-bottom: 80px; /* Отступ для нижних табов */
         }
-
         .container {
             max-width: 500px;
             margin: 0 auto;
             width: 100%;
             flex: 1;
         }
-
         /* Header Styles */
         header {
             text-align: center;
@@ -63,7 +62,6 @@
             position: relative;
             overflow: hidden;
         }
-
         header::before {
             content: "";
             position: absolute;
@@ -74,7 +72,6 @@
             background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
             transform: rotate(30deg);
         }
-
         header h1 {
             font-size: 1.8rem;
             font-weight: 700;
@@ -84,13 +81,11 @@
             justify-content: center;
             gap: 12px;
         }
-
         header p {
             font-size: 1rem;
             opacity: 0.9;
             font-weight: 300;
         }
-
         /* Card Styles */
         .card {
             background: var(--card-bg);
@@ -101,12 +96,10 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: 1px solid rgba(0,0,0,0.05);
         }
-
         .card:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-lg);
         }
-
         .card-title {
             display: flex;
             align-items: center;
@@ -114,7 +107,6 @@
             padding-bottom: 16px;
             border-bottom: 1px solid rgba(0,0,0,0.05);
         }
-
         .card-title i {
             margin-right: 12px;
             font-size: 1.4rem;
@@ -122,29 +114,24 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
         .card-title h2 {
             font-size: 1.4rem;
             font-weight: 600;
             color: var(--dark);
         }
-
         /* Beds Grid */
         .beds-container {
             display: flex;
             flex-direction: column;
             gap: 24px;
         }
-
         .beds-section {
             display: flex;
             gap: 16px;
         }
-
         .beds-column {
             flex: 1;
         }
-
         .column-title {
             text-align: center;
             font-weight: 600;
@@ -154,12 +141,10 @@
             background: rgba(67, 97, 238, 0.1);
             color: var(--primary);
         }
-
         .pm-column .column-title {
             background: rgba(6, 214, 160, 0.1);
             color: var(--success);
         }
-
         .size-card {
             background: linear-gradient(135deg, #f8f9ff, #edf2ff);
             border-radius: 12px;
@@ -170,34 +155,28 @@
             border: 1px solid rgba(67, 97, 238, 0.1);
             margin-bottom: 12px;
         }
-
         .size-card:last-child {
             margin-bottom: 0;
         }
-
         .pm-column .size-card {
             background: linear-gradient(135deg, #f0fdf4, #dcfce7);
             border: 1px solid rgba(6, 214, 160, 0.1);
         }
-
         .size-card:hover {
             background: linear-gradient(135deg, #edf2ff, #dbe4ff);
             transform: translateY(-3px);
             box-shadow: 0 4px 12px rgba(67, 97, 238, 0.15);
         }
-
         .pm-column .size-card:hover {
             background: linear-gradient(135deg, #dcfce7, #bbf7d0);
             box-shadow: 0 4px 12px rgba(6, 214, 160, 0.15);
         }
-
         .size-name {
             font-size: 0.9rem;
             font-weight: 600;
             color: var(--gray);
             margin-bottom: 12px;
         }
-
         .size-count {
             font-size: 1.6rem;
             font-weight: 700;
@@ -205,17 +184,14 @@
             color: var(--primary);
             transition: all 0.2s ease;
         }
-
         .pm-column .size-count {
             color: var(--success);
         }
-
         .counter-controls {
             display: flex;
             justify-content: center;
             gap: 8px;
         }
-
         .counter-btn {
             width: 36px;
             height: 36px;
@@ -230,21 +206,17 @@
             transition: all 0.2s ease;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-
         .counter-btn:active {
             transform: scale(0.92);
         }
-
         .btn-minus {
             background: var(--danger);
             color: white;
         }
-
         .btn-plus {
             background: var(--success);
             color: white;
         }
-
         /* Mattress Styles */
         .mattress-options {
             display: grid;
@@ -252,7 +224,6 @@
             gap: 12px;
             margin-bottom: 20px;
         }
-
         .mattress-option {
             background: linear-gradient(135deg, #f0f9ff, #e1f0ff);
             border: none;
@@ -266,21 +237,17 @@
             box-shadow: 0 2px 6px rgba(0,0,0,0.05);
             text-align: center;
         }
-
         .mattress-option:hover {
             background: linear-gradient(135deg, #e1f0ff, #d1e7ff);
             transform: translateY(-2px);
             box-shadow: 0 4px 10px rgba(67, 97, 238, 0.1);
         }
-
         .mattress-option:active {
             transform: scale(0.98);
         }
-
         .mattress-list {
             margin-top: 20px;
         }
-
         .mattress-item {
             background: linear-gradient(135deg, #fff9f0, #fff4e6);
             border-radius: 14px;
@@ -291,20 +258,17 @@
             flex-direction: column;
             box-shadow: 0 3px 8px rgba(0,0,0,0.05);
         }
-
         .mattress-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 16px;
         }
-
         .mattress-name {
             font-weight: 600;
             font-size: 1.1rem;
             color: #e67700;
         }
-
         .remove-btn {
             background: none;
             border: none;
@@ -319,15 +283,12 @@
             justify-content: center;
             transition: all 0.2s ease;
         }
-
         .remove-btn:hover {
             background: rgba(239, 71, 111, 0.1);
         }
-
         .remove-btn:active {
             transform: scale(0.9);
         }
-
         .mattress-size {
             width: 100%;
             padding: 12px 16px;
@@ -339,13 +300,11 @@
             color: var(--dark);
             box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
         }
-
         .mattress-controls {
             display: flex;
             align-items: center;
             justify-content: center;
         }
-
         .mattress-count {
             min-width: 50px;
             text-align: center;
@@ -354,7 +313,6 @@
             margin: 0 12px;
             color: #e67700;
         }
-
         .mattress-btn {
             width: 42px;
             height: 42px;
@@ -371,12 +329,10 @@
             box-shadow: 0 3px 8px rgba(255, 158, 0, 0.3);
             transition: all 0.2s ease;
         }
-
         .mattress-btn:active {
             transform: scale(0.92);
             box-shadow: 0 1px 4px rgba(255, 158, 0, 0.3);
         }
-
         /* Summary Card */
         .summary-card {
             background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
@@ -385,27 +341,23 @@
             padding: 24px;
             margin-top: 20px;
         }
-
         .summary-content {
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 12px;
         }
-
         .summary-text {
             font-size: 1.2rem;
             font-weight: 600;
             color: #01579b;
         }
-
         .total-count {
             font-size: 2.5rem;
             font-weight: 800;
             color: #01579b;
             text-shadow: 0 2px 4px rgba(1, 87, 155, 0.2);
         }
-
         /* Reset Button */
         .reset-btn {
             width: 100%;
@@ -425,18 +377,15 @@
             transition: all 0.3s ease;
             margin-top: 20px;
         }
-
         .reset-btn:hover {
             background: linear-gradient(135deg, #ff5252, #ff3b3b);
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(255, 107, 107, 0.5);
         }
-
         .reset-btn:active {
             transform: translateY(1px);
             box-shadow: 0 3px 10px rgba(255, 107, 107, 0.4);
         }
-
         /* Tabs at the bottom */
         .tabs {
             position: fixed;
@@ -448,7 +397,6 @@
             box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
             z-index: 1000;
         }
-
         .tab {
             flex: 1;
             padding: 16px 0;
@@ -459,26 +407,21 @@
             color: #718096;
             font-size: 0.9rem;
         }
-
         .tab.active {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
         }
-
         .tab i {
             display: block;
             font-size: 1.2rem;
             margin-bottom: 4px;
         }
-
         .tab-content {
             display: none;
         }
-
         .tab-content.active {
             display: block;
         }
-
         /* Table Styles */
         .table-container {
             background: var(--card-bg);
@@ -487,12 +430,10 @@
             box-shadow: var(--shadow);
             margin-bottom: 24px;
         }
-
         table {
             width: 100%;
             border-collapse: collapse;
         }
-
         th {
             background: #f1f8ff;
             font-weight: 600;
@@ -501,35 +442,28 @@
             border-bottom: 2px solid #e1e8ff;
             color: var(--primary);
         }
-
         td {
             padding: 16px;
             border-bottom: 1px solid #f0f0f0;
         }
-
         tbody tr:nth-child(even) {
             background: #fafbff;
         }
-
         .text-center {
             text-align: center;
         }
-
         .footer-row {
             background: linear-gradient(135deg, #e3f2fd, #bbdefb);
             font-weight: 700;
         }
-
         .ort-highlight {
             color: var(--primary);
             font-weight: 700;
         }
-
         .pm-highlight {
             color: var(--success);
             font-weight: 700;
         }
-
         /* Responsive Design */
         @media (max-width: 480px) {
             .beds-section {
@@ -537,64 +471,114 @@
                 flex-wrap: wrap;
                 gap: 16px;
             }
-            
             .beds-column {
                 flex: 0 0 calc(50% - 8px);
             }
-
         /* Уменьшаем внутренние отступы карточек */
             .size-card {
                 padding: 12px 8px;
             }
-        
         /* Уменьшаем размер шрифта */
             .size-name {
                 font-size: 0.8rem;
             }
-        
             .size-count {
                 font-size: 1.4rem;
             }
-        
         /* Корректируем кнопки */
             .counter-btn {
                 width: 32px;
                 height: 32px;
                 font-size: 1rem;
             }
-
             .mattress-options {
                 grid-template-columns: 1fr 1fr;
             }
-            
             header h1 {
                 font-size: 1.5rem;
             }
-            
             .card {
                 padding: 20px;
             }
         }
-
         @media (max-width: 360px) {
             .beds-column {
                 flex: 0 0 100%;
         }
-        
             .mattress-options {
                 grid-template-columns: 1fr;
             }
         }
-
-        /* Animation for counter changes */
+        /* Оптимизированные анимации */
         @keyframes pulse {
             0% { transform: scale(1); }
             50% { transform: scale(1.2); }
             100% { transform: scale(1); }
         }
-
         .changed {
             animation: pulse 0.3s ease;
+        }
+        /* Оптимизированные переходы с использованием transform и opacity */
+        .size-card, .mattress-item, .mattress-option, .counter-btn, 
+        .reset-btn, .mattress-btn, .remove-btn, .tab {
+            transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+            will-change: transform, opacity;
+        }
+        .size-count, .mattress-count {
+            transition: transform 0.3s ease, color 0.3s ease;
+            will-change: transform, color;
+        }
+        /* Стили для состояния офлайн */
+        .offline-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--danger);
+            color: white;
+            text-align: center;
+            padding: 8px;
+            font-weight: 600;
+            z-index: 9999;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+        }
+        .offline-indicator.visible {
+            transform: translateY(0);
+        }
+        /* Стили для уведомлений */
+        .notification {
+            position: fixed;
+            bottom: 80px;
+            left: 16px;
+            right: 16px;
+            padding: 16px;
+            border-radius: var(--border-radius);
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            z-index: 1000;
+            box-shadow: var(--shadow-lg);
+            transform: translateY(20px);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        .notification.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        /* Стили для индикатора загрузки */
+        @keyframes spinner {
+            to {transform: rotate(360deg);}
+        }
+        .loading-spinner {
+            width: 30px;
+            height: 30px;
+            border: 3px solid rgba(67, 97, 238, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--primary);
+            animation: spinner 0.8s linear infinite;
+            margin: 0 auto;
         }
     </style>
 </head>
@@ -604,7 +588,6 @@
             <h1><i class="fas fa-bed"></i> Счётчик кроватей</h1>
             <p>Удобный подсчет оснований и матрасов</p>
         </header>
-        
         <!-- Вкладка оснований -->
         <div class="tab-content active" id="beds-tab">
             <div class="card">
@@ -630,7 +613,6 @@
                 </div>
             </div>
         </div>
-        
         <!-- Вкладка матрасов -->
         <div class="tab-content" id="mattresses-tab">
             <div class="card">
@@ -651,7 +633,6 @@
                 </div>
             </div>
         </div>
-        
         <!-- Вкладка таблиц -->
         <div class="tab-content" id="tables-tab">
             <div class="table-container">
@@ -677,7 +658,6 @@
                     </tfoot>
                 </table>
             </div>
-            
             <div class="table-container">
                 <table>
                     <thead>
@@ -693,19 +673,16 @@
                 </table>
             </div>
         </div>
-        
         <div class="card summary-card">
             <div class="summary-content">
                 <div class="summary-text">Общий итог:</div>
                 <div id="totalBeds" class="total-count">0</div>
             </div>
         </div>
-        
         <button class="reset-btn" id="reset-btn">
             <i class="fas fa-redo"></i> Сбросить всё
         </button>
     </div>
-    
     <!-- Табы внизу экрана -->
     <div class="tabs">
         <div class="tab active" data-tab="beds">
@@ -721,26 +698,313 @@
             <span>Таблицы</span>
         </div>
     </div>
-    
     <script src="https://storage.googleapis.com/workbox-cdn/releases/6.5.4/workbox-sw.js"></script>
     <script>
-        // ===== PWA ФУНКЦИОНАЛ ===== //
+        // ===== PWA ФУНКЦИОНАЛ И ОБРАБОТКА ОШИБОК ===== //
+        // Создаем элемент для отображения статуса сети
+        const createNetworkStatusElement = () => {
+            const statusContainer = document.createElement('div');
+            statusContainer.className = 'network-status';
+            statusContainer.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                padding: 8px 16px;
+                background-color: var(--danger);
+                color: white;
+                text-align: center;
+                font-weight: 600;
+                z-index: 9999;
+                transform: translateY(-100%);
+                transition: transform 0.3s ease;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            `;
+            statusContainer.textContent = 'Отсутствует подключение к интернету';
+            document.body.appendChild(statusContainer);
+            return statusContainer;
+        };
+        // Функция для сохранения данных в локальное хранилище
+        const saveStateToLocalStorage = () => {
+            try {
+                // Получаем все данные счетчиков
+                const bedCounts = {};
+                document.querySelectorAll('.bed-count').forEach(counter => {
+                    const size = counter.getAttribute('data-size');
+                    const type = counter.getAttribute('data-type');
+                    const count = parseInt(counter.textContent) || 0;
+                    if (!bedCounts[type]) bedCounts[type] = {};
+                    bedCounts[type][size] = count;
+                });
+                // Получаем данные матрасов
+                const mattresses = [];
+                document.querySelectorAll('.mattress-item').forEach(card => {
+                    const name = card.querySelector('.mattress-name').textContent;
+                    const size = card.querySelector('.mattress-size').value;
+                    const count = parseInt(card.querySelector('.mattress-count').textContent) || 0;
+                    mattresses.push({ name, size, count });
+                });
+                // Сохраняем в локальное хранилище
+                localStorage.setItem('bedCounterData', JSON.stringify({
+                    beds: bedCounts,
+                    mattresses: mattresses,
+                    lastUpdate: new Date().toISOString()
+                }));
+                console.log('Данные сохранены в локальное хранилище');
+            } catch (error) {
+                console.error('Ошибка при сохранении данных:', error);
+            }
+        };
+        // Функция для загрузки данных из локального хранилища
+        const loadStateFromLocalStorage = () => {
+            try {
+                const savedData = localStorage.getItem('bedCounterData');
+                if (!savedData) return false;
+                const data = JSON.parse(savedData);
+                // Восстанавливаем данные кроватей
+                if (data.beds) {
+                    Object.entries(data.beds).forEach(([type, sizes]) => {
+                        Object.entries(sizes).forEach(([size, count]) => {
+                            const counter = document.querySelector(`.bed-count[data-size="${size}"][data-type="${type}"]`);
+                            if (counter) counter.textContent = count;
+                        });
+                    });
+                }
+                // Восстанавливаем матрасы
+                if (data.mattresses && data.mattresses.length > 0) {
+                    const container = document.getElementById('custom-mattresses-container');
+                    container.innerHTML = ''; // Очищаем контейнер
+                    data.mattresses.forEach(mattress => {
+                        const card = document.createElement('div');
+                        card.className = 'mattress-item';
+                        card.innerHTML = `
+                            <div class="mattress-header">
+                                <div class="mattress-name">${mattress.name}</div>
+                                <button class="remove-btn" onclick="removeMattress(this)">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                            <select class="mattress-size">
+                                ${bedSizes.map(size => 
+                                    `<option value="${size}" ${size === mattress.size ? 'selected' : ''}>${size}</option>`
+                                ).join('')}
+                            </select>
+                            <div class="mattress-controls">
+                                <button class="mattress-btn" onclick="updateMattressCounter(this, -1)">-</button>
+                                <span class="mattress-count">${mattress.count}</span>
+                                <button class="mattress-btn" onclick="updateMattressCounter(this, 1)">+</button>
+                            </div>
+                        `;
+                        container.appendChild(card);
+                    });
+                    // Обновляем счетчик ID для матрасов
+                    mattressCounter = data.mattresses.length + 1;
+                }
+                // Обновляем отображение итогов
+                updateTotal();
+                updateBedsTable();
+                updateCustomMattressTable();
+                console.log('Данные загружены из локального хранилища');
+                // Показываем уведомление о загрузке данных
+                if (data.lastUpdate) {
+                    const lastUpdateDate = new Date(data.lastUpdate);
+                    const formattedDate = lastUpdateDate.toLocaleString('ru-RU');
+                    const notification = document.createElement('div');
+                    notification.className = 'data-loaded-notification';
+                    notification.style.cssText = `
+                        position: fixed;
+                        bottom: 80px;
+                        left: 16px;
+                        right: 16px;
+                        padding: 16px;
+                        background-color: var(--primary);
+                        color: white;
+                        border-radius: var(--border-radius);
+                        text-align: center;
+                        box-shadow: var(--shadow-lg);
+                        z-index: 1000;
+                        animation: fadeIn 0.3s ease, fadeOut 0.3s ease 4.7s;
+                    `;
+                    notification.innerHTML = `
+                        <div>Загружены сохраненные данные</div>
+                        <div style="font-size: 0.8rem; opacity: 0.8; margin-top: 4px;">
+                            Последнее обновление: ${formattedDate}
+                        </div>
+                    `;
+                    document.body.appendChild(notification);
+                    // Удаляем уведомление через 5 секунд
+                    setTimeout(() => {
+                        document.body.removeChild(notification);
+                    }, 5000);
+                }
+                return true;
+            } catch (error) {
+                console.error('Ошибка при загрузке данных:', error);
+                return false;
+            }
+        };
+        // Отслеживание состояния сети
+        const setupNetworkStatus = () => {
+            const statusElement = createNetworkStatusElement();
+            const updateNetworkStatus = () => {
+                if (navigator.onLine) {
+                    statusElement.style.transform = 'translateY(-100%)';
+                    statusElement.style.backgroundColor = 'var(--success)';
+                    statusElement.textContent = 'Подключение к интернету восстановлено';
+                    // Скрываем сообщение через 3 секунды
+                    setTimeout(() => {
+                        statusElement.style.transform = 'translateY(-100%)';
+                    }, 3000);
+                } else {
+                    statusElement.style.transform = 'translateY(0)';
+                    statusElement.style.backgroundColor = 'var(--danger)';
+                    statusElement.textContent = 'Отсутствует подключение к интернету';
+                    // Сохраняем текущее состояние
+                    saveStateToLocalStorage();
+                }
+            };
+            // Слушаем изменения состояния сети
+            window.addEventListener('online', updateNetworkStatus);
+            window.addEventListener('offline', updateNetworkStatus);
+            // Устанавливаем начальное состояние
+            updateNetworkStatus();
+        };
         // Регистрация Service Worker
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('service-worker.js')
-                    .then(reg => console.log('Service Worker зарегистрирован'))
-                    .catch(err => console.log('Ошибка регистрации SW:', err));
+                    .then(reg => {
+                        console.log('Service Worker зарегистрирован');
+                        // Обработка обновлений Service Worker
+                        reg.addEventListener('updatefound', () => {
+                            const newWorker = reg.installing;
+                            newWorker.addEventListener('statechange', () => {
+                                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                    // Показываем уведомление о доступном обновлении
+                                    const updateNotification = document.createElement('div');
+                                    updateNotification.className = 'update-notification';
+                                    updateNotification.style.cssText = `
+                                        position: fixed;
+                                        bottom: 80px;
+                                        left: 16px;
+                                        right: 16px;
+                                        padding: 16px;
+                                        background: linear-gradient(135deg, var(--primary), var(--secondary));
+                                        color: white;
+                                        border-radius: var(--border-radius);
+                                        text-align: center;
+                                        z-index: 1000;
+                                        box-shadow: var(--shadow-lg);
+                                        display: flex;
+                                        flex-direction: column;
+                                        align-items: center;
+                                    `;
+                                    updateNotification.innerHTML = `
+                                        <div style="margin-bottom: 12px;">Доступно обновление приложения</div>
+                                        <button id="update-btn" style="
+                                            background: white;
+                                            color: var(--primary);
+                                            border: none;
+                                            padding: 8px 16px;
+                                            border-radius: 20px;
+                                            font-weight: 600;
+                                            cursor: pointer;
+                                        ">Обновить сейчас</button>
+                                    `;
+                                    document.body.appendChild(updateNotification);
+                                    // Обработчик для кнопки обновления
+                                    document.getElementById('update-btn').addEventListener('click', () => {
+                                        newWorker.postMessage({ type: 'SKIP_WAITING' });
+                                        window.location.reload();
+                                    });
+                                }
+                            });
+                        });
+                    })
+                    .catch(err => {
+                        console.error('Ошибка регистрации SW:', err);
+                        // Показываем уведомление об ошибке
+                        const errorNotification = document.createElement('div');
+                        errorNotification.className = 'error-notification';
+                        errorNotification.style.cssText = `
+                            position: fixed;
+                            top: 16px;
+                            left: 16px;
+                            right: 16px;
+                            padding: 16px;
+                            background-color: var(--danger);
+                            color: white;
+                            border-radius: var(--border-radius);
+                            text-align: center;
+                            z-index: 1000;
+                            box-shadow: var(--shadow);
+                        `;
+                        errorNotification.textContent = 'Не удалось загрузить автономные функции. Некоторые возможности могут быть недоступны.';
+                        document.body.appendChild(errorNotification);
+                        // Удаляем уведомление через 5 секунд
+                        setTimeout(() => {
+                            document.body.removeChild(errorNotification);
+                        }, 5000);
+                    });
             });
         }
-        
         // Определение standalone режима
         window.addEventListener('DOMContentLoaded', () => {
             if (window.matchMedia('(display-mode: standalone)').matches) {
                 console.log('Запущено как PWA');
             }
+            // Настраиваем отслеживание состояния сети
+            setupNetworkStatus();
+            // Настраиваем автоматическое сохранение
+            setInterval(saveStateToLocalStorage, 30000); // Сохраняем каждые 30 секунд
+            // Сохраняем при закрытии/перезагрузке страницы
+            window.addEventListener('beforeunload', saveStateToLocalStorage);
         });
-        
+        // Добавляем анимации для плавного появления элементов
+        document.addEventListener('DOMContentLoaded', () => {
+            // Добавляем CSS для анимаций
+            const styleElement = document.createElement('style');
+            styleElement.textContent = `
+                @keyframes fadeIn {
+                    from { opacity: 0; transform: translateY(20px); }
+                    to { opacity: 1; transform: translateY(0); }
+                }
+                @keyframes fadeOut {
+                    from { opacity: 1; transform: translateY(0); }
+                    to { opacity: 0; transform: translateY(20px); }
+                }
+                .card {
+                    animation: fadeIn 0.5s ease forwards;
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                .size-card {
+                    opacity: 0;
+                    animation: fadeIn 0.3s ease forwards;
+                }
+                .size-card:nth-child(1) { animation-delay: 0.1s; }
+                .size-card:nth-child(2) { animation-delay: 0.15s; }
+                .size-card:nth-child(3) { animation-delay: 0.2s; }
+                .size-card:nth-child(4) { animation-delay: 0.25s; }
+                .size-card:nth-child(5) { animation-delay: 0.3s; }
+                .size-card:nth-child(6) { animation-delay: 0.35s; }
+                .size-card:nth-child(7) { animation-delay: 0.4s; }
+                .mattress-item {
+                    animation: fadeIn 0.4s ease forwards;
+                }
+                .mattress-option {
+                    opacity: 0;
+                    animation: fadeIn 0.3s ease forwards;
+                }
+                .mattress-option:nth-child(1) { animation-delay: 0.1s; }
+                .mattress-option:nth-child(2) { animation-delay: 0.15s; }
+                .mattress-option:nth-child(3) { animation-delay: 0.2s; }
+                .mattress-option:nth-child(4) { animation-delay: 0.25s; }
+                .mattress-option:nth-child(5) { animation-delay: 0.3s; }
+                .mattress-option:nth-child(6) { animation-delay: 0.35s; }
+            `;
+            document.head.appendChild(styleElement);
+        });
         // ===== СУЩЕСТВУЮЩИЙ ФУНКЦИОНАЛ ПРИЛОЖЕНИЯ ===== //
         // Данные для кроватей
         const bedSizes = [
@@ -749,17 +1013,57 @@
             '80×190', '90×190', '120×190', '140×190', 
             '160×190', '180×190', '200×190'
         ];
-        
+        // Объект для хранения загруженных модулей
+        const lazyLoadedModules = {
+            bedsModule: null,
+            mattressesModule: null,
+            tablesModule: null
+        };
+        // Ленивая загрузка модулей
+        const loadModule = (moduleType) => {
+            if (lazyLoadedModules[moduleType]) {
+                return Promise.resolve(lazyLoadedModules[moduleType]);
+            }
+            return new Promise((resolve) => {
+                // Имитация загрузки модуля с небольшой задержкой для демонстрации
+                setTimeout(() => {
+                    // Создаем объект модуля в зависимости от типа
+                    switch(moduleType) {
+                        case 'bedsModule':
+                            lazyLoadedModules.bedsModule = {
+                                initialized: true,
+                                name: 'Модуль оснований'
+                            };
+                            resolve(lazyLoadedModules.bedsModule);
+                            break;
+                        case 'mattressesModule':
+                            lazyLoadedModules.mattressesModule = {
+                                initialized: true,
+                                name: 'Модуль матрасов'
+                            };
+                            resolve(lazyLoadedModules.mattressesModule);
+                            break;
+                        case 'tablesModule':
+                            lazyLoadedModules.tablesModule = {
+                                initialized: true,
+                                name: 'Модуль таблиц'
+                            };
+                            resolve(lazyLoadedModules.tablesModule);
+                            break;
+                        default:
+                            resolve(null);
+                    }
+                }, 100); // Задержка 100мс для имитации загрузки
+            });
+        };
         // Счетчик для ID матрасов
         let mattressCounter = 1;
-        
         // Генерация карточек для оснований
         function generateBedCards() {
             const ortContainer = document.getElementById('ort-beds-container');
             const pmContainer = document.getElementById('pm-beds-container');
             ortContainer.innerHTML = '';
             pmContainer.innerHTML = '';
-            
             bedSizes.forEach(size => {
                 // Карточка для ОРТ
                 const ortCard = document.createElement('div');
@@ -773,7 +1077,6 @@
                     </div>
                 `;
                 ortContainer.appendChild(ortCard);
-                
                 // Карточка для ПМ
                 const pmCard = document.createElement('div');
                 pmCard.className = 'size-card';
@@ -788,30 +1091,46 @@
                 pmContainer.appendChild(pmCard);
             });
         }
-        
-        // Функция обновления счетчика кровати
+        // Функция обновления счетчика кровати с оптимизацией производительности
         function updateBedCounter(button, change) {
             const card = button.closest('.size-card');
             const counter = card.querySelector('.bed-count');
             let value = parseInt(counter.textContent) + change;
             if (value < 0) value = 0;
-            counter.textContent = value;
-            counter.classList.add('changed');
-            setTimeout(() => counter.classList.remove('changed'), 300);
-            updateTotal();
-            updateBedsTable();
+            // Обновляем только если значение изменилось
+            if (value !== parseInt(counter.textContent)) {
+                counter.textContent = value;
+                // Используем transform для анимации (более производительно)
+                counter.style.transform = 'scale(1.2)';
+                counter.style.color = change > 0 ? 'var(--success)' : 'var(--danger)';
+                // Возвращаем к нормальному состоянию через CSS transition вместо classList
+                setTimeout(() => {
+                    counter.style.transform = 'scale(1)';
+                    counter.style.color = ''; // Возвращаем стандартный цвет
+                }, 300);
+                // Используем requestAnimationFrame для обновления UI
+                requestAnimationFrame(() => {
+                    // Обновляем только когда изменилось значение
+                    updateTotal();
+                    // Отложенное обновление таблицы для оптимизации
+                    if (window.updateTableTimeout) {
+                        clearTimeout(window.updateTableTimeout);
+                    }
+                    window.updateTableTimeout = setTimeout(() => {
+                        updateBedsTable();
+                        saveStateToLocalStorage(); // Сохраняем состояние после изменений
+                    }, 300);
+                });
+            }
         }
-        
         // Функция обновления таблицы кроватей
         function updateBedsTable() {
             const tableBody = document.getElementById('beds-table-body');
             tableBody.innerHTML = '';
             let totalOrt = 0;
             let totalPm = 0;
-            
             // Собираем данные по размерам
             const sizeData = {};
-            
             // Инициализируем объект для всех размеров
             bedSizes.forEach(size => {
                 sizeData[size] = {
@@ -820,13 +1139,11 @@
                     total: 0
                 };
             });
-            
             // Собираем данные из карточек
             document.querySelectorAll('.bed-count').forEach(counter => {
                 const size = counter.getAttribute('data-size');
                 const type = counter.getAttribute('data-type');
                 const count = parseInt(counter.textContent) || 0;
-                
                 if (type === 'ort') {
                     sizeData[size].ort = count;
                     totalOrt += count;
@@ -834,17 +1151,14 @@
                     sizeData[size].pm = count;
                     totalPm += count;
                 }
-                
                 sizeData[size].total = sizeData[size].ort + sizeData[size].pm;
             });
-            
             // Сортируем по размеру (числовое значение ширины)
             const sortedSizes = [...bedSizes].sort((a, b) => {
                 const widthA = parseInt(a.split('×')[0]);
                 const widthB = parseInt(b.split('×')[0]);
                 return widthA - widthB;
             });
-            
             // Заполняем таблицу
             sortedSizes.forEach(size => {
                 const data = sizeData[size];
@@ -859,17 +1173,14 @@
                     tableBody.appendChild(row);
                 }
             });
-            
             document.getElementById('beds-total-ort').textContent = totalOrt;
             document.getElementById('beds-total-pm').textContent = totalPm;
             document.getElementById('beds-total').textContent = totalOrt + totalPm;
         }
-        
         // Функция добавления специального матраса
         function addCustomMattress(name) {
             const container = document.getElementById('custom-mattresses-container');
             const id = `mattress-${mattressCounter}`;
-            
             // Создаем карточку матраса
             const card = document.createElement('div');
             card.className = 'mattress-item';
@@ -896,40 +1207,62 @@
             mattressCounter++;
             updateCustomMattressTable();
         }
-        
-        // Функция обновления счетчика матраса
+        // Функция обновления счетчика матраса с оптимизацией
         function updateMattressCounter(button, change) {
             const card = button.closest('.mattress-item');
             const counter = card.querySelector('.mattress-count');
             let value = parseInt(counter.textContent) + change;
             if (value < 0) value = 0;
-            counter.textContent = value;
-            counter.classList.add('changed');
-            setTimeout(() => counter.classList.remove('changed'), 300);
-            updateTotal();
-            updateCustomMattressTable();
+            // Обновляем только если значение изменилось
+            if (value !== parseInt(counter.textContent)) {
+                counter.textContent = value;
+                // Используем transform для анимации (более производительно)
+                counter.style.transform = 'scale(1.2)';
+                counter.style.color = change > 0 ? '#c17000' : '#e84a5f';
+                // Плавное возвращение через CSS transition
+                setTimeout(() => {
+                    counter.style.transform = 'scale(1)';
+                    counter.style.color = '';
+                }, 300);
+                // Используем requestAnimationFrame для обновления UI
+                requestAnimationFrame(() => {
+                    updateTotal();
+                    // Отложенное обновление таблицы
+                    if (window.updateMattressTableTimeout) {
+                        clearTimeout(window.updateMattressTableTimeout);
+                    }
+                    window.updateMattressTableTimeout = setTimeout(() => {
+                        updateCustomMattressTable();
+                        saveStateToLocalStorage(); // Сохраняем состояние
+                    }, 300);
+                });
+            }
         }
-        
-        // Функция удаления матраса
+        // Функция удаления матраса с анимацией
         function removeMattress(button) {
             const card = button.closest('.mattress-item');
-            card.remove();
-            updateTotal();
-            updateCustomMattressTable();
+            // Анимация удаления с использованием transform и opacity
+            card.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
+            card.style.transform = 'translateX(100px)';
+            card.style.opacity = '0';
+            // Удаляем элемент после завершения анимации
+            setTimeout(() => {
+                card.remove();
+                updateTotal();
+                updateCustomMattressTable();
+                saveStateToLocalStorage();
+            }, 300);
         }
-        
         // Функция обновления таблицы специальных матрасов
         function updateCustomMattressTable() {
             const tableBody = document.getElementById('custom-table-body');
             tableBody.innerHTML = '';
             const mattresses = [];
-            
             // Собираем все матрасы
             document.querySelectorAll('.mattress-item').forEach(card => {
                 const name = card.querySelector('.mattress-name').textContent;
                 const size = card.querySelector('.mattress-size').value;
                 const count = parseInt(card.querySelector('.mattress-count').textContent) || 0;
-                
                 if (count > 0) {
                     mattresses.push({
                         name: name,
@@ -938,10 +1271,8 @@
                     });
                 }
             });
-            
             // Сортируем матрасы по названию
             mattresses.sort((a, b) => a.name.localeCompare(b.name));
-            
             // Заполняем таблицу
             mattresses.forEach(mattress => {
                 const row = document.createElement('tr');
@@ -953,24 +1284,19 @@
                 tableBody.appendChild(row);
             });
         }
-        
         // Функция подсчёта общего количества
         function updateTotal() {
             let total = 0;
-            
             // Считаем добавленные кровати
             document.querySelectorAll('.bed-count').forEach(counter => {
                 total += parseInt(counter.textContent) || 0;
             });
-            
             // Считаем специальные матрасы
             document.querySelectorAll('.mattress-count').forEach(counter => {
                 total += parseInt(counter.textContent) || 0;
             });
-            
             document.getElementById('totalBeds').textContent = total;
         }
-        
         // Функция сброса всех счётчиков
         function resetAll() {
             // Сбрасываем кровати
@@ -979,57 +1305,253 @@
                 counter.classList.add('changed');
                 setTimeout(() => counter.classList.remove('changed'), 300);
             });
-            
             // Сбрасываем матрасы
             document.querySelectorAll('.mattress-count').forEach(counter => {
                 counter.textContent = '0';
                 counter.classList.add('changed');
                 setTimeout(() => counter.classList.remove('changed'), 300);
             });
-            
             // Удаляем все добавленные матрасы
             document.getElementById('custom-mattresses-container').innerHTML = '';
-            
             updateTotal();
             updateBedsTable();
             updateCustomMattressTable();
-            
             // Анимация сброса
             document.getElementById('reset-btn').classList.add('active');
             setTimeout(() => {
                 document.getElementById('reset-btn').classList.remove('active');
             }, 500);
         }
-        
+        // Ленивая загрузка контента вкладок
+        const loadTabContent = (tabName) => {
+            return new Promise((resolve) => {
+                const moduleType = `${tabName}Module`;
+                console.log(`Загрузка модуля для вкладки ${tabName}`);
+                loadModule(moduleType).then(() => {
+                    // Показываем загруженную вкладку
+                    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                    const tabContent = document.getElementById(`${tabName}-tab`);
+                    tabContent.classList.add('active');
+                    // Анимация появления содержимого
+                    const contentItems = tabContent.querySelectorAll('.card, .size-card, .mattress-option, .table-container');
+                    contentItems.forEach((item, index) => {
+                        item.style.opacity = '0';
+                        item.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            item.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                            item.style.opacity = '1';
+                            item.style.transform = 'translateY(0)';
+                        }, index * 50);
+                    });
+                    resolve();
+                });
+            });
+        };
+        // Показ индикатора загрузки
+        const showLoadingIndicator = (targetElement) => {
+            const loader = document.createElement('div');
+            loader.className = 'loading-indicator';
+            loader.style.cssText = `
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 20px;
+                color: var(--primary);
+            `;
+            loader.innerHTML = `
+                <div class="spinner" style="
+                    width: 30px;
+                    height: 30px;
+                    border: 3px solid rgba(67, 97, 238, 0.3);
+                    border-radius: 50%;
+                    border-top-color: var(--primary);
+                    animation: spinner 0.8s linear infinite;
+                "></div>
+            `;
+            // Добавляем стили для анимации
+            if (!document.getElementById('spinner-style')) {
+                const style = document.createElement('style');
+                style.id = 'spinner-style';
+                style.textContent = `
+                    @keyframes spinner {
+                        to {transform: rotate(360deg);}
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+            targetElement.appendChild(loader);
+            return loader;
+        };
+        // Функция для парсинга URL-параметров
+        const getUrlParams = () => {
+            const params = {};
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            for (const [key, value] of urlParams) {
+                params[key] = value;
+            }
+            return params;
+        };
         // Инициализация при загрузке
         document.addEventListener('DOMContentLoaded', () => {
-            // Генерируем карточки кроватей
-            generateBedCards();
-            
-            // Настройка вкладок
-            document.querySelectorAll('.tab').forEach(tab => {
-                tab.addEventListener('click', function() {
-                    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-                    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-                    this.classList.add('active');
-                    document.getElementById(`${this.dataset.tab}-tab`).classList.add('active');
-                });
-            });
-            
-            // Обработчики для матрасов
-            document.querySelectorAll('.mattress-option').forEach(option => {
-                option.addEventListener('click', function() {
-                    const name = this.getAttribute('data-name');
-                    addCustomMattress(name);
-                });
-            });
-            
-            // Обработчик кнопки сброса
-            document.getElementById('reset-btn').addEventListener('click', resetAll);
-            
-            // Инициализация данных
-            updateTotal();
-            updateBedsTable();
+            // Показываем индикатор загрузки в контейнере
+            const container = document.querySelector('.container');
+            const loader = showLoadingIndicator(container);
+            // Проверяем URL-параметры для прямого перехода на вкладку
+            const urlParams = getUrlParams();
+            // Асинхронная инициализация
+            setTimeout(() => {
+                try {
+                    // Генерируем карточки кроватей
+                    generateBedCards();
+                    // Пытаемся загрузить сохраненные данные
+                    const dataLoaded = loadStateFromLocalStorage();
+                    if (!dataLoaded) {
+                        // Если данные не загружены, инициализируем новые
+                        updateTotal();
+                        updateBedsTable();
+                    }
+                    // Настройка вкладок с ленивой загрузкой
+                    document.querySelectorAll('.tab').forEach(tab => {
+                        tab.addEventListener('click', function() {
+                            const tabName = this.dataset.tab;
+                            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                            this.classList.add('active');
+                            // Показываем индикатор загрузки во вкладке
+                            const tabContent = document.getElementById(`${tabName}-tab`);
+                            
+                            // Восстанавливаем содержимое вкладки
+                            if (tabName === 'beds') {
+                                // Проверяем существование контейнеров перед доступом к их свойствам
+                                const ortContainer = document.getElementById('ort-beds-container');
+                                const pmContainer = document.getElementById('pm-beds-container');
+                                if (ortContainer && pmContainer && ortContainer.children.length === 0 && pmContainer.children.length === 0) {
+                                    generateBedCards();
+                                }
+                            } else if (tabName === 'mattresses') {
+                                // Здесь можно добавить логику для вкладки матрасов, если нужно
+                            } else if (tabName === 'tables') {
+                                // Обновляем данные для вкладки таблиц
+                                updateBedsTable();
+                                updateCustomMattressTable();
+                            }
+                            
+                            // Активируем вкладку
+                            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                            if (tabContent) {
+                                tabContent.classList.add('active');
+                            }
+                        });
+                    });
+                    // Обработчики для матрасов с делегированием событий
+                    const mattressOptions = document.querySelector('.mattress-options');
+                    if (mattressOptions) {
+                        mattressOptions.addEventListener('click', (event) => {
+                            const option = event.target.closest('.mattress-option');
+                            if (option) {
+                                const name = option.getAttribute('data-name');
+                                addCustomMattress(name);
+                            }
+                        });
+                    }
+                    // Обработчик кнопки сброса
+                    const resetBtn = document.getElementById('reset-btn');
+                    if (resetBtn) {
+                        resetBtn.addEventListener('click', resetAll);
+                    }
+                    // Добавляем обработчик ошибок для изображений
+                    document.querySelectorAll('img').forEach(img => {
+                        img.addEventListener('error', function() {
+                            console.warn(`Не удалось загрузить изображение: ${this.src}`);
+                            this.src = 'android-chrome-192x192.png'; // Резервное изображение
+                        });
+                    });
+                    // Проверяем URL-параметры для активации нужной вкладки
+                    if (urlParams.tab) {
+                        const tabName = urlParams.tab;
+                        const tabElement = document.querySelector(`.tab[data-tab="${tabName}"]`);
+                        if (tabElement) {
+                            // Активируем нужную вкладку
+                            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                            tabElement.classList.add('active');
+                            const tabContent = document.getElementById(`${tabName}-tab`);
+                            if (tabContent) {
+                                tabContent.classList.add('active');
+                                // Обновляем данные для конкретной вкладки
+                                if (tabName === 'tables') {
+                                    updateBedsTable();
+                                    updateCustomMattressTable();
+                                }
+                            }
+                        }
+                    }
+                    // Удаляем индикатор загрузки
+                    if (loader && container.contains(loader)) {
+                         container.removeChild(loader);
+                    }
+                    console.log('Приложение успешно инициализировано');
+                } catch (error) {
+                    console.error('Ошибка при инициализации:', error);
+                    // Показываем сообщение об ошибке
+                    container.innerHTML = `
+                        <div class="card" style="text-align: center; margin-top: 40px;">
+                            <div style="color: var(--danger); font-size: 64px; margin-bottom: 20px;">⚠️</div>
+                            <h2 style="color: var(--danger); margin-bottom: 16px;">Произошла ошибка</h2>
+                            <p style="margin-bottom: 24px; color: var(--gray);">
+                                При загрузке приложения произошла ошибка. Пожалуйста, обновите страницу.
+                            </p>
+                            <button onclick="window.location.reload()" style="
+                                background: var(--primary);
+                                color: white;
+                                border: none;
+                                padding: 12px 24px;
+                                border-radius: 24px;
+                                font-weight: 600;
+                                cursor: pointer;
+                            ">Обновить страницу</button>
+                        </div>
+                    `;
+                }
+            }, 500); // Имитация загрузки для демонстрации
+        });
+        // Обработка ошибок
+        window.addEventListener('error', (event) => {
+            console.error('Перехвачена ошибка:', event.error);
+            // Показываем уведомление об ошибке
+            const errorNotification = document.createElement('div');
+            errorNotification.className = 'error-notification';
+            errorNotification.style.cssText = `
+                position: fixed;
+                top: 16px;
+                left: 16px;
+                right: 16px;
+                padding: 16px;
+                background-color: var(--danger);
+                color: white;
+                border-radius: var(--border-radius);
+                text-align: center;
+                z-index: 1000;
+                box-shadow: var(--shadow);
+                animation: fadeIn 0.3s ease, fadeOut 0.3s ease 4.7s;
+            `;
+            errorNotification.innerHTML = `
+                <div style="margin-bottom: 8px; font-weight: 600;">Произошла ошибка</div>
+                <div style="font-size: 0.9rem; opacity: 0.9;">${event.error?.message || 'Неизвестная ошибка'}</div>
+            `;
+            document.body.appendChild(errorNotification);
+            // Удаляем уведомление через 5 секунд
+            setTimeout(() => {
+                if (document.body.contains(errorNotification)) {
+                    document.body.removeChild(errorNotification);
+                }
+            }, 5000);
+            // Сохраняем данные на случай, если ошибка критическая
+            try {
+                saveStateToLocalStorage();
+            } catch (e) {
+                console.error('Не удалось сохранить данные:', e);
+            }
         });
     </script>
 </body>
